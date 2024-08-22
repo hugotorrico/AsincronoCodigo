@@ -5,8 +5,10 @@ DescargarArchivoAsync();
 var calentarAguaTask = CalentarAguaAsync();
 var comprarPanTask = ComprarPanAsync();
 var comprarHuevosTask = ComprarHuevosAsync();
+var prepararCafeTask = PrepararCafeAsync();
+var freirHuevoTask = FreirHuevoAsync();
 
-await Task.WhenAll(calentarAguaTask, comprarPanTask,comprarHuevosTask);
+await Task.WhenAll(calentarAguaTask, comprarPanTask,comprarHuevosTask,prepararCafeTask,freirHuevoTask);
 Console.WriteLine("Terminar Desayuno");
 Console.Read();
 static async  Task CalentarAguaAsync()
@@ -35,4 +37,18 @@ static async void DescargarArchivoAsync()
     Console.WriteLine("Empezar a descargar archivo...");
     await Task.Delay(4000); // Simula que calentar agua toma 3 segundos
     Console.WriteLine("Archivo descargado.");
+}
+
+static async Task PrepararCafeAsync()
+{
+    Console.WriteLine("Preparando café...");
+    await Task.Delay(4000); // Simula que preparar café toma 4 segundos
+    Console.WriteLine("Café listo.");
+}
+
+static async Task FreirHuevoAsync()
+{
+    Console.WriteLine("Friendo huevo...");
+    await Task.Delay(2500); // Simula que freír un huevo toma 2.5 segundos
+    Console.WriteLine("Huevo frito listo.");
 }
